@@ -1,0 +1,4989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.2-alpha1" last-position="302,490" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="ideo"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="ideo" encoding="LATIN1" lc-collate="C" lc-ctype="C">
+	<role name="ideo"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="ideo" rect-visible="true" fill-color="#83af1f">
+	<role name="ideo"/>
+</schema>
+
+<table name="actions">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="50"/>
+	<column name="action_js">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="affichage_js" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="competence" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="condition" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="nom_court">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="pa" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="parole" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pm" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="script" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="xp" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_actions" type="pk-constr" table="ideo.actions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="annonces">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="378" y="50"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="nom_auteur" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="taverne" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_annonces" type="pk-constr" table="ideo.annonces">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="armes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="704" y="50"/>
+	<column name="afficher" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="artefact" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bonus" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="comp" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="competence_min">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="de" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="degats" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="deux_mains" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="dex" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="effets" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="enchantable" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="enco" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fichier_degats" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="force" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="intel" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="location">
+		<type name="text"/>
+	</column>
+	<column name="maudit" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="poids" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="portee" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="precis" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="sol" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="sorts_aut" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="type_bonus" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type_img" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="type_mun" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="vendeur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_armes" type="pk-constr" table="ideo.armes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="artefacts">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1057" y="50"/>
+	<column name="camoufle" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="porte" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_artefacts" type="pk-constr" table="ideo.artefacts">
+		<columns names="id,type" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="assoc_coffre_equipement">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1367" y="50"/>
+	<column name="idarme">
+		<type name="smallint"/>
+	</column>
+	<column name="idcoffre" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="identifiantequipement" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idobjet">
+		<type name="smallint"/>
+	</column>
+	<column name="idparure">
+		<type name="smallint"/>
+	</column>
+	<column name="niveauenchantement">
+		<type name="smallint"/>
+	</column>
+	<column name="quantite" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="solidite">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_assoc_coffre_equipement" type="pk-constr" table="ideo.assoc_coffre_equipement">
+		<columns names="identifiantequipement" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="assoc_habitations_perso">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="627.4"/>
+	<column name="idhabitation" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idperso" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="status" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<constraint name="pk_assoc_habitations_perso" type="pk-constr" table="ideo.assoc_habitations_perso">
+		<columns names="idhabitation,idperso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="assoc_relais_vehicule">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="627.4"/>
+	<column name="idrelais" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvehicule" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_assoc_relais_vehicule" type="pk-constr" table="ideo.assoc_relais_vehicule">
+		<columns names="idrelais,idvehicule" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="attente_login">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="598" y="627.4"/>
+	<column name="acces" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_attente_login" type="pk-constr" table="ideo.attente_login">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="audiences">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="795" y="627.4"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="royaume">
+		<type name="integer"/>
+	</column>
+	<column name="sujet" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="ville">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_audiences" type="pk-constr" table="ideo.audiences">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="avertissements">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1100" y="627.4"/>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="mj" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="raison" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_avertissements" type="pk-constr" table="ideo.avertissements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="bannis">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="812.8"/>
+	<column name="autorise" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ville" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_bannis" type="pk-constr" table="ideo.bannis">
+		<columns names="perso,ville" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="batiments">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="259" y="812.8"/>
+	<column name="avancement" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="banniere" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="chantier" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="hauteur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_template" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="image">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="largeur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="limite_action" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="45"/>
+	</column>
+	<column name="param" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="terrain" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ville" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_batiments" type="pk-constr" table="ideo.batiments">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="bonus_equip">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="586" y="812.8"/>
+	<column name="classe" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="id" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="id_auto" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="param" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_bonus_equip" type="pk-constr" table="ideo.bonus_equip">
+		<columns names="id_auto" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="bugs">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="885" y="812.8"/>
+	<column name="avancement" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="solution" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_bugs" type="pk-constr" table="ideo.bugs">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="carte">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1211" y="812.8"/>
+	<column name="couleur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="6"/>
+	</column>
+	<column name="id" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_carte" type="pk-constr" table="ideo.carte">
+		<columns names="id,x,y" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="cartes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="1124.2"/>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="fichier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="fichierpj" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="modif_mvt" not-null="true" default-value="'N'::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="modif_pamax">
+		<type name="smallint"/>
+	</column>
+	<column name="modif_vue" not-null="true" default-value="'N'::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="saison" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="visible" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="x_max">
+		<type name="integer"/>
+	</column>
+	<column name="x_min">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y_max">
+		<type name="integer"/>
+	</column>
+	<column name="y_min">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_cartes" type="pk-constr" table="ideo.cartes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="chapitres_faq">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="372" y="1124.2"/>
+	<column name="id" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_chapitres_faq" type="pk-constr" table="ideo.chapitres_faq">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="chroniques">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="659" y="1124.2"/>
+	<column name="chapitre" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="legende" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_chroniques" type="pk-constr" table="ideo.chroniques">
+		<columns names="chapitre,perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="chrontasks">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="968" y="1124.2"/>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="function" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="45"/>
+	</column>
+	<column name="groupe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="nextexec" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="45"/>
+	</column>
+	<column name="parameters" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="timeinterval">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_chrontasks" type="pk-constr" table="ideo.chrontasks">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="coffres">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1289" y="1124.2"/>
+	<column name="contenanceactuelle" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="coutameliorationcoffre" not-null="true" default-value="1000">
+		<type name="integer"/>
+	</column>
+	<column name="descriptioncoffre" not-null="true" default-value="'Un coffre.'::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="idcoffre" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idhabitation" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="niveaucoffre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveaucoffremax" not-null="true" default-value="2">
+		<type name="smallint"/>
+	</column>
+	<column name="nomcoffre" not-null="true" default-value="'Coffre'::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<constraint name="pk_coffres" type="pk-constr" table="ideo.coffres">
+		<columns names="idcoffre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="competences">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="1435.6"/>
+	<column name="carac" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="8"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dossier" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="gain1" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="gain2" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="max_autorise_default" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="mod_con" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mod_dex" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mod_exp" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mod_force" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mod_intel" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mod_per" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="nomcourt" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="param1" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="param2" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="seuil" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="theme" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_competences" type="pk-constr" table="ideo.competences">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="competences_assoc">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="418" y="1435.6"/>
+	<column name="competence" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="max_autorise" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="valeur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_competences_assoc" type="pk-constr" table="ideo.competences_assoc">
+		<columns names="competence,perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="competencethemes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="655" y="1435.6"/>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<constraint name="pk_competencethemes" type="pk-constr" table="ideo.competencethemes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="comptes_banques">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="965" y="1435.6"/>
+	<column name="code" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="6"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="solde" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_comptes_banques" type="pk-constr" table="ideo.comptes_banques">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="connectes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1283" y="1435.6"/>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="mj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_connectes" type="pk-constr" table="ideo.connectes">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="creatures">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="1789"/>
+	<column name="bloque_regen" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="cible1">
+		<type name="integer"/>
+	</column>
+	<column name="cible2">
+		<type name="integer"/>
+	</column>
+	<column name="cible3">
+		<type name="integer"/>
+	</column>
+	<column name="cible4">
+		<type name="integer"/>
+	</column>
+	<column name="gold" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ia" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="naissance" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="or_ca" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_hb" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_ithoria" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_kohr" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_pe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="pm" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="prochain_tour" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="pv" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="reste_mouvement" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="sorts">
+		<type name="text"/>
+	</column>
+	<column name="type" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="ville">
+		<type name="integer"/>
+	</column>
+	<column name="volonte" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_creatures" type="pk-constr" table="ideo.creatures">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="details_perso">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="317" y="1789"/>
+	<column name="aime" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="apparence" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="autres" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="cheveux" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="decalage" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="deteste" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lieu" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="naissance" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="poids" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="taille" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="yeux" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_details_perso" type="pk-constr" table="ideo.details_perso">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dieux">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="625" y="1789"/>
+	<column name="bonus_comp" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="carte_mdm">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ecole1">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="ecole2">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="ecole3">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="effets" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="missive_mdm">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="role" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="pk_dieux" type="pk-constr" table="ideo.dieux">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="discussions">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="954" y="1789"/>
+	<column name="auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="crie" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="datetime" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idfrom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idto" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="image_perso" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="langue" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="msg" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="dossiers">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1282" y="1789"/>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="params" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_dossiers" type="pk-constr" table="ideo.dossiers">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="dossiers_missives">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="2198.4"/>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="params" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_dossiers_missives" type="pk-constr" table="ideo.dossiers_missives">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="droits">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="368" y="2198.4"/>
+	<column name="categorie" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="valeurs" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_droits" type="pk-constr" table="ideo.droits">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ecole_magie">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="686" y="2198.4"/>
+	<column name="couleur" default-value="'black'::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="couleur2" default-value="'black'::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="couleur_bouton" default-value="'blanc'::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_ecole_magie" type="pk-constr" table="ideo.ecole_magie">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="effet_sort">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1023" y="2198.4"/>
+	<column name="description">
+		<type name="text"/>
+	</column>
+	<column name="fichier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_court" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<constraint name="pk_effet_sort" type="pk-constr" table="ideo.effet_sort">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="effet_sort_assoc">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1334" y="2198.4"/>
+	<column name="effet_sort" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="parametre">
+		<type name="text"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_effet_sort_assoc" type="pk-constr" table="ideo.effet_sort_assoc">
+		<columns names="effet_sort,type" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="effets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="2355.8"/>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_court" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="params" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_effets" type="pk-constr" table="ideo.effets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="evenement_relais">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="361" y="2355.8"/>
+	<column name="amplitudedes" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="amplitudedesprix" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="choixpaye" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="datedebut">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="datefin">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="descreature" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="desprix" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fixecreature" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fixeprix" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idcreature">
+		<type name="integer"/>
+	</column>
+	<column name="idevenement" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvoyage" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="messageevenement" not-null="true" default-value="'Vous avez �t� attaqu� sur le trajet ! D�fendez-vous !'::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="nombrerepetition">
+		<type name="integer"/>
+	</column>
+	<column name="pourcentage" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_evenement_relais" type="pk-constr" table="ideo.evenement_relais">
+		<columns names="idevenement" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="evenements">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="730" y="2355.8"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="cible" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="neutre" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="soi" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_evenements" type="pk-constr" table="ideo.evenements">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="evenements_assoc">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="930" y="2355.8"/>
+	<column name="evenement" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="localisable" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_evenements_assoc" type="pk-constr" table="ideo.evenements_assoc">
+		<columns names="evenement,perso,type" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="familiers">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1164" y="2355.8"/>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="sexe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_familiers" type="pk-constr" table="ideo.familiers">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="faq">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="2653.2"/>
+	<column name="chapitre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="question" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="reponse" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="schapitre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_faq" type="pk-constr" table="ideo.faq">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_asso_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="358" y="2653.2"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_asso_msg" type="pk-constr" table="ideo.forum_asso_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_asso_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="684" y="2653.2"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_asso_sujets" type="pk-constr" table="ideo.forum_asso_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_camp_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1010" y="2653.2"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_camp_msg" type="pk-constr" table="ideo.forum_camp_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_camp_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1336" y="2653.2"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_camp_sujets" type="pk-constr" table="ideo.forum_camp_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_contrees_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="2922.6"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_contrees_msg" type="pk-constr" table="ideo.forum_contrees_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_contrees_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="2922.6"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_contrees_sujets" type="pk-constr" table="ideo.forum_contrees_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_faq_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="702" y="2922.6"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_faq_msg" type="pk-constr" table="ideo.forum_faq_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_faq_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1028" y="2922.6"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_faq_sujets" type="pk-constr" table="ideo.forum_faq_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_favoris">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1354" y="2922.6"/>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="id_favori" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="id_forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id_perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id_sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id_ville">
+		<type name="integer"/>
+	</column>
+	<column name="type_forum" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<constraint name="pk_forum_favoris" type="pk-constr" table="ideo.forum_favoris">
+		<columns names="id_favori" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_hrp_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="3178"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_hrp_msg" type="pk-constr" table="ideo.forum_hrp_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_hrp_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="3178"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_hrp_sujets" type="pk-constr" table="ideo.forum_hrp_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_liste">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="702" y="3178"/>
+	<column name="autorisations" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="bd" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bg" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date_limite" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="der" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="fond" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="forum" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nv" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="ordre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="param" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_forum_liste" type="pk-constr" table="ideo.forum_liste">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_mj_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1021" y="3178"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_mj_msg" type="pk-constr" table="ideo.forum_mj_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_mj_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1347" y="3178"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_mj_sujets" type="pk-constr" table="ideo.forum_mj_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_reve_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="3447.4"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_reve_msg" type="pk-constr" table="ideo.forum_reve_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_reve_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="3447.4"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<constraint name="pk_forum_reve_sujets" type="pk-constr" table="ideo.forum_reve_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_tech_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="702" y="3447.4"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_tech_msg" type="pk-constr" table="ideo.forum_tech_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_tech_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1028" y="3447.4"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="liste_status" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_forum_tech_sujets" type="pk-constr" table="ideo.forum_tech_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_ville_msg">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1354" y="3447.4"/>
+	<column name="aut_sign" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titres" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_forum_ville_msg" type="pk-constr" table="ideo.forum_ville_msg">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="forum_ville_sujets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="3730.8"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bloque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_msg" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="forum" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="important" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mj">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nb_msg" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="start" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="ville" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_forum_ville_sujets" type="pk-constr" table="ideo.forum_ville_sujets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="goodies">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="3730.8"/>
+	<column name="coordonnees" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="goodies" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="login" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="paiement" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="param" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="port" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_goodies" type="pk-constr" table="ideo.goodies">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="groupe_droit_assoc">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="706" y="3730.8"/>
+	<column name="droit" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="groupe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="valeur">
+		<type name="character varying" length="30"/>
+	</column>
+	<constraint name="pk_groupe_droit_assoc" type="pk-constr" table="ideo.groupe_droit_assoc">
+		<columns names="droit,groupe" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="habitations">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1000" y="3730.8"/>
+	<column name="coutajoutcoffre" not-null="true" default-value="1000">
+		<type name="integer"/>
+	</column>
+	<column name="coutameliorationhabitation" not-null="true" default-value="1000">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="idbatiment" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idhabitation" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="imghabitation" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="lienrp" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="nombrecoffremax" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nombreplaceactuelle" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nombreplacemax" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nomhabitation" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<constraint name="pk_habitations" type="pk-constr" table="ideo.habitations">
+		<columns names="idhabitation" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ia">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1403" y="3730.8"/>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="fichier" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<constraint name="pk_ia" type="pk-constr" table="ideo.ia">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="images_equip">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="4000.2"/>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="sexe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_images_equip" type="pk-constr" table="ideo.images_equip">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="inscriptions">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="333" y="4000.2"/>
+	<column name="aime" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="alteration" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="annee" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="apparence" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="autres" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="avatar" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="cheveux" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="competence" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="con" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="cycle" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="date_creation" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="date_retour" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dc_raison" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="destruction" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="deteste" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dex" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="dieu" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="double_compte" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="email" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="exp" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="force" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="intel" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="jour" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="justice" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="lieu" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="login" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="mois" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="msg" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="negation" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pass" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="per" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="poids" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="protection" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="retour" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="sexe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="taille" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="temple" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="validation">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="vitalite" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="voie" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="yeux" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_inscriptions" type="pk-constr" table="ideo.inscriptions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="irl">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="678" y="4000.2"/>
+	<column name="cr" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="lieu" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="organisation" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_irl" type="pk-constr" table="ideo.irl">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="irl_participation">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="994" y="4000.2"/>
+	<column name="hebergement" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="irl" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="locomotion" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="notes" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="participation" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="repas" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_irl_participation" type="pk-constr" table="ideo.irl_participation">
+		<columns names="irl,perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="logs">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1328" y="4000.2"/>
+	<column name="action" not-null="true" default-value="'0'::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ip">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="params" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="time" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+</table>
+
+<table name="logs_dev">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="4717.6"/>
+	<column name="action" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="cible" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom_aut" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_dest" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_logs_dev" type="pk-constr" table="ideo.logs_dev">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="logs_mj">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="356" y="4717.6"/>
+	<column name="action" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="cible" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom_aut" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_dest" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_logs_mj" type="pk-constr" table="ideo.logs_mj">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="membres">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="662" y="4717.6"/>
+	<column name="adherent" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="autorise" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="avatar">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="avatar_mj" not-null="true">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="bonus_xp" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="bypass_auto_delete" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="charte" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="cree" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dernier_acces" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="descr_pnj" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dieu" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ecole1" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="ecole2" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="ecole3" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="email" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="60"/>
+	</column>
+	<column name="event" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="familier">
+		<type name="integer"/>
+	</column>
+	<column name="garde_equipement" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="grade_site" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="groupe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id_joue">
+		<type name="integer"/>
+	</column>
+	<column name="id_mj">
+		<type name="integer"/>
+	</column>
+	<column name="id_pj">
+		<type name="integer"/>
+	</column>
+	<column name="interface_mj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mort_absolue" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="motif_mortabs" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nb_xp_bonus" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="niveaurp" not-null="true" default-value="65535">
+		<type name="real"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_familier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="pass" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="rep_ressources">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="representant" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="sexe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="specialite">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="titre" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="vacances">
+		<type name="bigint"/>
+	</column>
+	<column name="validation" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="voie" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="zombie" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_membres" type="pk-constr" table="ideo.membres">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="missives">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1031" y="4717.6"/>
+	<column name="archiver_from" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="archiver_to" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="cacher" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="cacher_dest" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="destinataires">
+		<type name="text"/>
+	</column>
+	<column name="dossier">
+		<type name="integer"/>
+	</column>
+	<column name="dossier_envoi">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="idfrom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idto" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="langues" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lue" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="mjfrom" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="mjto" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nomfrom" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nomto" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="80"/>
+	</column>
+	<column name="supprimer" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_missives" type="pk-constr" table="ideo.missives">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="modeles_missive">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1356" y="4717.6"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="sujet" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="80"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_modeles_missive" type="pk-constr" table="ideo.modeles_missive">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="morts">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="5407"/>
+	<column name="auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="cible" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="idfrom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idto" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="news">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="345" y="5407"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom_auteur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titre" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="3"/>
+	</column>
+	<constraint name="pk_news" type="pk-constr" table="ideo.news">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="notes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="663" y="5407"/>
+	<column name="contenu" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="idmj" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idnote" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idperso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_notes" type="pk-constr" table="ideo.notes">
+		<columns names="idnote" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="notes_chroniques">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="968" y="5407"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom_auteur" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_notes_chroniques" type="pk-constr" table="ideo.notes_chroniques">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="notes_collections">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1286" y="5407"/>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_notes_collections" type="pk-constr" table="ideo.notes_collections">
+		<columns names="id,perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="objets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="5592.4"/>
+	<column name="afficher" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="artefact" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="competence_min">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="effets" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="enchantable" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="enco" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fichier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="location">
+		<type name="text"/>
+	</column>
+	<column name="maudit" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom_util" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="nombre" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="pack" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="param">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="poids" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="portable" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="sol" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="vendeur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_objets" type="pk-constr" table="ideo.objets">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="objets_terre">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="403" y="5592.4"/>
+	<column name="equipement" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="x" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_objets_terre" type="pk-constr" table="ideo.objets_terre">
+		<columns names="x,y" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="options_serveur">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="632" y="5592.4"/>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="valeur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_options_serveur" type="pk-constr" table="ideo.options_serveur">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="parametrage">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="923" y="5592.4"/>
+	<column name="idparametrage" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="libelle" not-null="true">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="modifiable" not-null="true" default-value="'non'::character varying">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="typeparametre">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="valeur" not-null="true" default-value="'0'::character varying">
+		<type name="character varying" length="11"/>
+	</column>
+	<constraint name="pk_parametrage" type="pk-constr" table="ideo.parametrage">
+		<columns names="idparametrage" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="parures">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1263" y="5592.4"/>
+	<column name="afficher" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="artefact" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="classe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="competence_min">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="effets" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="enchantable" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="enco" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="force" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="location">
+		<type name="text"/>
+	</column>
+	<column name="maudit" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="nom2" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="poids" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="sol" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="sorts_aut" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="vendeur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_parures" type="pk-constr" table="ideo.parures">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pioms_perso">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="6043.8"/>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="po" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="v_achetes" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="v_portes" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_pioms_perso" type="pk-constr" table="ideo.pioms_perso">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="preferences">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="269" y="6043.8"/>
+	<column name="avert_missive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="avert_missive_attaque" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bouton_tir" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="cacher_menu" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="compact_forum" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="equipement" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="forum_plein_ecran" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="gd_ecran" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="grille" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="image_equip" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="montrer_email" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="msg_jour" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nb_msg_page" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nb_sujets_page" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="newsletter" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="plein_ecran" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="polices" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="reduire" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="signature" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="signature_missives" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="signature_mj" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="skin" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="son" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="style" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="pk_preferences" type="pk-constr" table="ideo.preferences">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="profil">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="650" y="6043.8"/>
+	<column name="attitude" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="balance_atk" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="batiment" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="camoufle" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="ci" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="con" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="concentre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date_dernier_regain" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="date_salaire" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dex" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="equipement" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="esquive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="evenements" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="exp" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fatigue" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="force" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="gold" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="image">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="infos_tour">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="intel" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="livre_recettes">
+		<type name="text"/>
+	</column>
+	<column name="livre_recoltes">
+		<type name="text"/>
+	</column>
+	<column name="livre_sorts" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mana" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mort" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="1">
+		<type name="bigint"/>
+	</column>
+	<column name="nouv_missive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nouv_missive_mj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="or_ca" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_hb" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_ithoria" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_kohr" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_pe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="orientation" not-null="true" default-value="''::bpchar">
+		<type name="character" length="2"/>
+	</column>
+	<column name="pa" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="parole" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="per" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="pm" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="prochain_tour">
+		<type name="bigint"/>
+	</column>
+	<column name="pts_perso" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pv" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="relations" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="session">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="sorts">
+		<type name="text"/>
+	</column>
+	<column name="x">
+		<type name="integer"/>
+	</column>
+	<column name="xp" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="y">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_profil" type="pk-constr" table="ideo.profil">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="profil_bisar">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1019" y="6043.8"/>
+	<column name="attitude" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="balance_atk" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="batiment" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="camoufle" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="ci" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="con" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="concentre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="date_dernier_regain" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="date_salaire" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="dex" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="equipement" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="esquive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="evenements" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="exp" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="fatigue" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="force" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="gold" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="image">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="infos_tour">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="intel" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="livre_recettes">
+		<type name="text"/>
+	</column>
+	<column name="livre_recoltes">
+		<type name="text"/>
+	</column>
+	<column name="livre_sorts" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="mana" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="mort" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="1">
+		<type name="bigint"/>
+	</column>
+	<column name="nouv_missive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nouv_missive_mj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="or_ca" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_hb" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_ithoria" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_kohr" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="or_pe" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="orientation" not-null="true" default-value="''::bpchar">
+		<type name="character" length="2"/>
+	</column>
+	<column name="pa" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="parole" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="per" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="pm" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="prochain_tour">
+		<type name="bigint"/>
+	</column>
+	<column name="pts_perso" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pv" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="relations" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="session">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="sorts">
+		<type name="text"/>
+	</column>
+	<column name="x">
+		<type name="integer"/>
+	</column>
+	<column name="xp" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="y">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_profil_bisar" type="pk-constr" table="ideo.profil_bisar">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="profil_forum">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1388" y="6043.8"/>
+	<column name="date_asso" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_camp" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_contrees" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_faq" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_hrp" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_mj" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_reve" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_tech" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="date_ville" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_asso" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_camp" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_contrees" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_faq" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_hrp" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_mj" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_reve" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_tech" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="lus_ville" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="perso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_profil_forum" type="pk-constr" table="ideo.profil_forum">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="promotions">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="6789.2"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="motif" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="nom_auteur" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="sujet" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_promotions" type="pk-constr" table="ideo.promotions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="question_sub">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="376" y="6789.2"/>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="reponse" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_question_sub" type="pk-constr" table="ideo.question_sub">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="questionnaire_q">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="679" y="6789.2"/>
+	<column name="explication" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="indice" default-value="'Ce que vous devez savoir de l''univers d''Ideo'::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="(-1)">
+		<type name="smallint"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_questionnaire_q" type="pk-constr" table="ideo.questionnaire_q">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="questionnaire_r">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="995" y="6789.2"/>
+	<column name="bonne" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="question" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_questionnaire_r" type="pk-constr" table="ideo.questionnaire_r">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="recettes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1301" y="6789.2"/>
+	<column name="artisanat" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="carac" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="classe" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="competence" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="competence_pourcentage">
+		<type name="smallint"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id_objet" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ingredients" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="location" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="nombre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="outils" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="trouvable" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_recettes" type="pk-constr" table="ideo.recettes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="relais">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="7086.6"/>
+	<column name="idbatiment" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idrelais" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idroyaume">
+		<type name="integer"/>
+	</column>
+	<column name="idville">
+		<type name="integer"/>
+	</column>
+	<column name="imgrelais">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="messageaccueil" not-null="true" default-value="'Bienvenue !'::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="nomrelais" not-null="true" default-value="'Relais'::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="tresorerie" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_relais" type="pk-constr" table="ideo.relais">
+		<columns names="idrelais" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="relations">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="393" y="7086.6"/>
+	<column name="a" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="de" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="smiley" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="type" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_relations" type="pk-constr" table="ideo.relations">
+		<columns names="a,de" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="repertoire">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="676" y="7086.6"/>
+	<column name="bloques" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="commentaires" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="contacts" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_repertoire" type="pk-constr" table="ideo.repertoire">
+		<columns names="perso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="royaumes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="915" y="7086.6"/>
+	<column name="auteur_missive" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="couleur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="6"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="elfe" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="forum">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="humain" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="missive_accueil" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="monnaie" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="orc" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="race" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="type_img" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="15"/>
+	</column>
+	<constraint name="pk_royaumes" type="pk-constr" table="ideo.royaumes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="save_jet">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1247" y="7086.6"/>
+	<column name="action" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="bonus" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="now()">
+		<type name="timestamp"/>
+	</column>
+	<column name="de" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="faces" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id_membre" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="resultat" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_save_jet" type="pk-constr" table="ideo.save_jet">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="skins">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="7356"/>
+	<column name="acces_pj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="css" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="32"/>
+	</column>
+	<column name="params" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<constraint name="pk_skins" type="pk-constr" table="ideo.skins">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sort">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="368" y="7356"/>
+	<column name="acces" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="cout_mana">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dieux" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="difficulte" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ecole" not-null="true" default-value="'aucune'::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="fichier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="hit_and_run" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="image_bouton">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="js" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="35"/>
+	</column>
+	<column name="nom_court" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="pnj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="portee" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="soi" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="voie" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<constraint name="pk_sort" type="pk-constr" table="ideo.sort">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sort_assoc">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="697" y="7356"/>
+	<column name="parametre">
+		<type name="text"/>
+	</column>
+	<column name="sort" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_sort_assoc" type="pk-constr" table="ideo.sort_assoc">
+		<columns names="sort,type" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="templates_batiment">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="914" y="7356"/>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="hauteur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="largeur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="limite_action" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="45"/>
+	</column>
+	<column name="objectif" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="param" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_templates_batiment" type="pk-constr" table="ideo.templates_batiment">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="terrains">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1241" y="7356"/>
+	<column name="acces" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bloc" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bonus_atk" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bonus_def" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bonus_vis" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="couleur" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="6"/>
+	</column>
+	<column name="cout_dep" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="fichier" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="filtres" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="liste_recolte">
+		<type name="text"/>
+	</column>
+	<column name="nbimages" not-null="true" default-value="'100'::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="42"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="regen" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="regen_equip" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="script" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="z_index" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_terrains" type="pk-constr" table="ideo.terrains">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tickets_surf">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="7723.4"/>
+	<column name="date_transaction" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="id_transaction" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="result" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_tickets_surf" type="pk-constr" table="ideo.tickets_surf">
+		<columns names="id_transaction" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="titres">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="326" y="7723.4"/>
+	<column name="budget">
+		<type name="integer"/>
+	</column>
+	<column name="compte">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="nom_fem">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="parent" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="revenu">
+		<type name="integer"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="visible" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_titres" type="pk-constr" table="ideo.titres">
+		<columns names="id,royaume" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="titres_joueurs">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="636" y="7723.4"/>
+	<column name="perso" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="royaume" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="titre" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_titres_joueurs" type="pk-constr" table="ideo.titres_joueurs">
+		<columns names="perso,royaume,titre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="trajets">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="851" y="7723.4"/>
+	<column name="idtrajet" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvoyage" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="position" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="x_arrive" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="x_depart" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="y_arrive" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="y_depart" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_trajets" type="pk-constr" table="ideo.trajets">
+		<columns names="idtrajet" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="transferts">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1063" y="7723.4"/>
+	<column name="auteur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idfrom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="idto" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="montant" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_transferts" type="pk-constr" table="ideo.transferts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="types_creatures">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="7936.8"/>
+	<column name="afficher" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="armure" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="bonus" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="camoufle" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="de" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="degats" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dossier" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="ecole" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="effets" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="effets_attaque" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="esquive" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="familles" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="fichier_blessures" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="fichier_degats" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="gains">
+		<type name="text"/>
+	</column>
+	<column name="genre" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="hauteur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="image" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="intel" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="largeur" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="milieux">
+		<type name="text"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="pm" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pnj" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="portee" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="precis" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="pv" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="regen" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="resist_magie" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="volonte" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_types_creatures" type="pk-constr" table="ideo.types_creatures">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="updates">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="389" y="7936.8"/>
+	<column name="date" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="type" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_updates" type="pk-constr" table="ideo.updates">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="user_groups">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="611" y="7936.8"/>
+	<column name="attributs" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="niveau" not-null="true" default-value="0">
+		<type name="bigint"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<constraint name="pk_user_groups" type="pk-constr" table="ideo.user_groups">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vehicules">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="908" y="7936.8"/>
+	<column name="description">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="idvehicule" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="modifcout" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="modifdureeheure" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="modifpa" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="modifpm" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="modifrisque" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="nbplacemax" default-value="1">
+		<type name="integer"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<constraint name="pk_vehicules" type="pk-constr" table="ideo.vehicules">
+		<columns names="idvehicule" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vetements_piom">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1260" y="7936.8"/>
+	<column name="auteur" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ensemble" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="piom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="rarete" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="vendable" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_vetements_piom" type="pk-constr" table="ideo.vetements_piom">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vetements_piom2">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="8472.2"/>
+	<column name="auteur" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ensemble" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="piom" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="prix" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="rarete" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="type" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="vendable" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<constraint name="pk_vetements_piom2" type="pk-constr" table="ideo.vetements_piom2">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="villes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="367" y="8472.2"/>
+	<column name="birthplace" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="camp_origine" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="gains">
+		<type name="integer"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="image" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="maire" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="monnaies" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="msg_bienvenue" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="nom" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="permissions" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="ratio_carte" not-null="true" default-value="10">
+		<type name="smallint"/>
+	</column>
+	<column name="showinfos" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="terrains" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="x1" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="x2" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="x_carte" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y1" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y2" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="y_carte" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_villes" type="pk-constr" table="ideo.villes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="voyages">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="712" y="8472.2"/>
+	<column name="cout" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="depensepa" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="depensepm" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="description">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="distance" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="dureeheure" not-null="true" default-value="0">
+		<type name="real"/>
+	</column>
+	<column name="idrelaisarrive" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idrelaisdepart" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvoyage" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_voyages" type="pk-constr" table="ideo.voyages">
+		<columns names="idvoyage" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="voyageurs">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1042" y="8472.2"/>
+	<column name="chef" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="datearrivee">
+		<type name="integer"/>
+	</column>
+	<column name="groupe">
+		<type name="integer"/>
+	</column>
+	<column name="idevenement">
+		<type name="integer"/>
+	</column>
+	<column name="idperso" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvehicule" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvoyage" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="idvoyageur" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="message" default-value="''::character varying">
+		<type name="character varying" length="500"/>
+	</column>
+	<column name="momentevent">
+		<type name="integer"/>
+	</column>
+	<column name="montantrancon">
+		<type name="integer"/>
+	</column>
+	<column name="nbcreature">
+		<type name="integer"/>
+	</column>
+	<column name="pourcentageavancement">
+		<type name="integer"/>
+	</column>
+	<column name="statusvoyage" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<column name="statusvoyageur" not-null="true" default-value="0">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_voyageurs" type="pk-constr" table="ideo.voyageurs">
+		<columns names="idvoyageur" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="wiki_menus">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="1437" y="8472.2"/>
+	<column name="elements" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="titre" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<constraint name="pk_wiki_menus" type="pk-constr" table="ideo.wiki_menus">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="wiki_textes">
+	<schema name="ideo"/>
+	<role name="ideo"/>
+	<position x="50" y="8825.6"/>
+	<column name="id" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="menus" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="prefixe" default-value="'none'::character varying">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="securite" not-null="true" default-value="0">
+		<type name="smallint"/>
+	</column>
+	<column name="texte" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="titre" not-null="true" default-value="''::character varying">
+		<type name="character varying" length="64"/>
+	</column>
+	<constraint name="pk_wiki_textes" type="pk-constr" table="ideo.wiki_textes">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+</dbmodel>

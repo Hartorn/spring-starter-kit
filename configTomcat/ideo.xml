@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fichier à déposer dans le répertoire ci-dessous : -->
+<!-- $CATALINA_BASE/conf/[enginename]/[hostname]/[webappname].xml -->
+
+<Context>
+
+	<Resource name="jdbc/IdeoDB" auth="Container" type="javax.sql.DataSource"
+		factory=" org.apache.tomcat.jdbc.pool.DataSourceFactory"
+		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://127.0.0.1:5432/dd35"
+		username="ddUser" password="ddUser" maxTotal="20" maxIdle="10"
+		testOnBorrow="true" testOnConnect="true" testOnReturn="true"
+		validationQuery="SELECT 1" validationQueryTimeout="5"
+		defaultAutoCommit="false" removeAbandoned="true" defaultReadOnly="true"
+		removeAbandonedTimeout="600" logAbandoned="false" />
+</Context>

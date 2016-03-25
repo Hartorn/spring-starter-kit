@@ -1,0 +1,261 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dungeons-dragons-java</groupId>
+  <artifactId>dungeons-dragons-java</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Dungeons &amp; Dragon's Webapp</name>
+	<!-- Shared version number properties -->
+	<properties>
+		<springframework.version>4.2.5.RELEASE</springframework.version>
+		<springjpa.version>1.9.4.RELEASE</springjpa.version>
+		<openjpa.version>2.4.0</openjpa.version>
+
+		<jackson.version>2.6.5</jackson.version>
+		<slf4j.version>1.7.14</slf4j.version>
+		<log4j.version>2.5</log4j.version>
+		<postgresql.version>9.4.1207.jre7</postgresql.version>
+
+		<cglib.version>3.2.0</cglib.version>
+		<!-- Maven plugin version -->
+		<antrun.version>1.8</antrun.version>
+		<compiler.version>3.5</compiler.version>
+		<war.version>2.6</war.version>
+		<!-- Project configuration -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Project properties -->
+		<openjpa.entityDir>com/github/hartorn/dd/webapp/model/generated</openjpa.entityDir>
+
+	</properties>
+
+	<build>
+		<finalName>dd-webapp</finalName>
+
+		<!-- <pluginManagement> -->
+
+		<!-- Classes generation, using OpenJpa org.apache.openjpa.jdbc.ant.ReverseMappingToolTask -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun.version}</version>
+				<executions>
+					<execution>
+						<id>db2java</id>
+						<!-- <phase>generate-sources</phase> -->
+						<configuration>
+							<tasks>
+								<taskdef name="reversemappingtool"
+									classname="org.apache.openjpa.jdbc.ant.ReverseMappingToolTask" />
+
+								<reversemappingtool package="com.github.hartorn.dd.webapp.model.generated"
+									directory="${basedir}/src/main/java" metadata="none"
+									generateAnnotations="true">
+									<config
+										propertiesFile="${basedir}/src/main/resources/META-INF/persistence.xml" />
+
+									<codeformat tabSpaces="4" spaceBeforeParen="true"
+										braceOnSameLine="false" />
+								</reversemappingtool>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>javax.validation</groupId>
+						<artifactId>validation-api</artifactId>
+						<version>1.1.0.Final</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.openjpa</groupId>
+						<artifactId>openjpa-all</artifactId>
+						<version>${openjpa.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>cglib</groupId>
+						<artifactId>cglib-nodep</artifactId>
+						<version>${cglib.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>${postgresql.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- Class enhancement using OpenJpa plugin -->
+			<plugin>
+				<groupId>org.apache.openjpa</groupId>
+				<artifactId>openjpa-maven-plugin</artifactId>
+				<version>${openjpa.version}</version>
+				<configuration>
+					<includes>**com/github/hartorn/dd/webapp/model/generated/*.class</includes>
+					<addDefaultConstructor>true</addDefaultConstructor>
+					<enforcePropertyRestrictions>true</enforcePropertyRestrictions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>enhancer</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.openjpa</groupId>
+						<artifactId>openjpa</artifactId>
+						<!-- set the version to be the same as the level in your runtime -->
+						<version>${openjpa.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- Maven Compiler : task used for compiling java classes -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<useIncrementalCompilation>false</useIncrementalCompilation>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true></showDeprecation>
+					<!-- <verbose>true</verbose> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war.version}</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<warName>dd-webapp</warName>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+		</plugins>
+		<!-- </pluginManagement> -->
+
+	</build>
+
+	<dependencies>
+		<!-- PostgresSql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Pool de connexion -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>8.0.32</version>
+<!--
+			<scope>runtime</scope>
+-->
+		</dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${springjpa.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<!-- Jackson (Json Conversion) -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!-- Servlet API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- Open JPA (JPA implementation) -->
+		<dependency>
+			<groupId>org.apache.openjpa</groupId>
+			<artifactId>openjpa</artifactId>
+			<version>${openjpa.version}</version>
+		</dependency>
+
+		<!-- Logging (LOG4J) -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Bridge LOG4j 1.x -> 2.x -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Bridge ACL -> LOG4J 2.x -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Bridge SLF4J -> LOG4J -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Bridge Java Util Logging to Log4j 2.X -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Handling Web Application -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-web</artifactId>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+</project>
