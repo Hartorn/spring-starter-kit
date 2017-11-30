@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Fichier à déposer dans le répertoire ci-dessous : -->
 <!-- $CATALINA_BASE/conf/[enginename]/[hostname]/[webappname].xml -->
-
+<!-- https://github.com/brettwooldridge/HikariCP -->
 <Context>
+<!-- 		driverClassName="org.postgresql.Driver"  -->
 
 	<Resource name="jdbc/IdeoDB" auth="Container" type="javax.sql.DataSource"
-		factory=" org.apache.tomcat.jdbc.pool.DataSourceFactory"
-		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://127.0.0.1:5432/dd35"
-		username="ddUser" password="ddUser" maxTotal="20" maxIdle="10"
-		testOnBorrow="true" testOnConnect="true" testOnReturn="true"
-		validationQuery="SELECT 1" validationQueryTimeout="5"
-		defaultAutoCommit="false" removeAbandoned="true" defaultReadOnly="true"
-		removeAbandonedTimeout="600" logAbandoned="false" />
+		factory="com.zaxxer.hikari.HikariJNDIFactory"
+		jdbcUrl="jdbc:postgresql://127.0.0.1:5432/dd35"
+		username="ddUser" password="ddUser" 
+		autoCommit="false"
+		maximumPoolSize="20" 
+		readOnly="true"
+		connectionInitSql="SELECT 1"
+		/>
 </Context>

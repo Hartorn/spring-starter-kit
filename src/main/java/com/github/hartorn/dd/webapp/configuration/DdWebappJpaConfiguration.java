@@ -9,8 +9,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver;
 import org.springframework.jndi.JndiTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -54,7 +56,7 @@ public class DdWebappJpaConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws NamingException {
 		final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
-		final OpenJpaVendorAdapter jpaAdapter = new OpenJpaVendorAdapter();
+		final HibernateJpaVendorAdapter jpaAdapter = new HibernateJpaVendorAdapter();
 		jpaAdapter.setDatabase(Database.POSTGRESQL);
 		jpaAdapter.setShowSql(true);
 		jpaAdapter.setGenerateDdl(false);
