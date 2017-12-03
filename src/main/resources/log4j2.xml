@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
-	<Appenders>
-		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-		</Console>
-	</Appenders>
-	<Loggers>
-<!-- 		<Logger name="com.github.hartorn.mysql2pgsql.XmlToSql" level="info" -->
-<!-- 			additivity="false"> -->
-<!-- 			<AppenderRef ref="Console" /> -->
-<!-- 		</Logger> -->
-<!-- 		<Logger name="com.github.hartorn.mysql2pgsql.Xml2SqlDataEventHandler" -->
-<!-- 			level="info" additivity="false"> -->
-<!-- 			<AppenderRef ref="Console" /> -->
-<!-- 		</Logger> -->
-		<Logger name="org.springframework.web.context.ContextLoader"
-			level="info" additivity="false">
-			<AppenderRef ref="Console" />
-		</Logger>
-
-		<Root level="error">
-			<AppenderRef ref="Console" />
-		</Root>
-	</Loggers>
-</Configuration> 
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- <Logger name="com.github.hartorn.mysql2pgsql.XmlToSql" level="info" additivity="false"><AppenderRef ref="Console" /></Logger><Logger name="com.github.hartorn.mysql2pgsql.Xml2SqlDataEventHandler" level="info" additivity="false"><AppenderRef ref="Console" /></Logger> -->
+        <Logger name="org.springframework.web.context.ContextLoader" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
