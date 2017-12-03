@@ -7,226 +7,192 @@ import javax.persistence.*;
  * org.apache.openjpa.jdbc.meta.ReverseMappingTool$AnnotatedCodeGenerator
  */
 @Entity
-@Table(schema="ideo", name="actions")
-public class Actions
-{
+@Table(schema = "spring", name = "actions")
+public class Actions {
     @Basic
-    @Column(name="action_js", length=128)
+    @Column(name = "action_js", length = 128)
     private String actionJs;
 
     @Basic
-    @Column(name="affichage_js", nullable=false, length=32)
+    @Column(name = "affichage_js", nullable = false, length = 32)
     private String affichageJs;
 
     @Basic
-    @Column(columnDefinition="int4")
+    @Column(columnDefinition = "int4")
     private int competence;
 
     @Basic
-    @Column(columnDefinition="text", nullable=false, length=2147483647)
+    @Column(columnDefinition = "text", nullable = false, length = 2147483647)
     private String condition;
 
     @Basic
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String description;
 
     @Id
-    @Column(columnDefinition="int4")
+    @Column(columnDefinition = "int4")
     private int id;
 
     @Basic
-    @Column(nullable=false, length=32)
+    @Column(nullable = false, length = 32)
     private String image;
 
     @Basic
-    @Column(nullable=false, length=32)
+    @Column(nullable = false, length = 32)
     private String nom;
 
     @Basic
-    @Column(name="nom_court", length=32)
+    @Column(name = "nom_court", length = 32)
     private String nomCourt;
 
     @Basic
-    @Column(columnDefinition="int2")
+    @Column(columnDefinition = "int2")
     private short pa;
 
     @Basic
-    @Column(columnDefinition="int2")
+    @Column(columnDefinition = "int2")
     private short parole;
 
     @Basic
-    @Column(columnDefinition="int2")
+    @Column(columnDefinition = "int2")
     private short pm;
 
     @Basic
-    @Column(nullable=false, length=64)
+    @Column(nullable = false, length = 64)
     private String script;
 
     @Basic
-    @Column(columnDefinition="int4")
+    @Column(columnDefinition = "int4")
     private int type;
 
     @Basic
-    @Column(columnDefinition="int2")
+    @Column(columnDefinition = "int2")
     private short xp;
 
-
-    public Actions ()
-    {
+    public Actions() {
     }
 
-    public Actions (int id)
-    {
+    public Actions(int id) {
         this.id = id;
     }
 
-    public String getActionJs ()
-    {
+    public String getActionJs() {
         return actionJs;
     }
 
-    public void setActionJs (String actionJs)
-    {
+    public void setActionJs(String actionJs) {
         this.actionJs = actionJs;
     }
 
-    public String getAffichageJs ()
-    {
+    public String getAffichageJs() {
         return affichageJs;
     }
 
-    public void setAffichageJs (String affichageJs)
-    {
+    public void setAffichageJs(String affichageJs) {
         this.affichageJs = affichageJs;
     }
 
-    public int getCompetence ()
-    {
+    public int getCompetence() {
         return competence;
     }
 
-    public void setCompetence (int competence)
-    {
+    public void setCompetence(int competence) {
         this.competence = competence;
     }
 
-    public String getCondition ()
-    {
+    public String getCondition() {
         return condition;
     }
 
-    public void setCondition (String condition)
-    {
+    public void setCondition(String condition) {
         this.condition = condition;
     }
 
-    public String getDescription ()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription (String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getId ()
-    {
+    public int getId() {
         return id;
     }
 
-    public void setId (int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getImage ()
-    {
+    public String getImage() {
         return image;
     }
 
-    public void setImage (String image)
-    {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public String getNom ()
-    {
+    public String getNom() {
         return nom;
     }
 
-    public void setNom (String nom)
-    {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public String getNomCourt ()
-    {
+    public String getNomCourt() {
         return nomCourt;
     }
 
-    public void setNomCourt (String nomCourt)
-    {
+    public void setNomCourt(String nomCourt) {
         this.nomCourt = nomCourt;
     }
 
-    public short getPa ()
-    {
+    public short getPa() {
         return pa;
     }
 
-    public void setPa (short pa)
-    {
+    public void setPa(short pa) {
         this.pa = pa;
     }
 
-    public short getParole ()
-    {
+    public short getParole() {
         return parole;
     }
 
-    public void setParole (short parole)
-    {
+    public void setParole(short parole) {
         this.parole = parole;
     }
 
-    public short getPm ()
-    {
+    public short getPm() {
         return pm;
     }
 
-    public void setPm (short pm)
-    {
+    public void setPm(short pm) {
         this.pm = pm;
     }
 
-    public String getScript ()
-    {
+    public String getScript() {
         return script;
     }
 
-    public void setScript (String script)
-    {
+    public void setScript(String script) {
         this.script = script;
     }
 
-    public int getType ()
-    {
+    public int getType() {
         return type;
     }
 
-    public void setType (int type)
-    {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public short getXp ()
-    {
+    public short getXp() {
         return xp;
     }
 
-    public void setXp (short xp)
-    {
+    public void setXp(short xp) {
         this.xp = xp;
     }
 }
