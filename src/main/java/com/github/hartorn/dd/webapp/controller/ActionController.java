@@ -3,7 +3,6 @@
  */
 package com.github.hartorn.dd.webapp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +27,7 @@ public class ActionController {
 	@RequestMapping(method = RequestMethod.GET, path = "/actions")
 	public Iterable<Actions> greeting() {
         log.info("Calling findAll");
-		return this.actionService.findAll();
+		return this.actionService.findAllByCriteria();
 	}
 
 }
