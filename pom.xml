@@ -15,6 +15,7 @@
         <jackson.version>2.9.2</jackson.version>
         <slf4j.version>1.7.14</slf4j.version>
         <log4j.version>2.10.0</log4j.version>
+        <springfox.version>2.7.0</springfox.version>
         <postgresql.version>42.1.4</postgresql.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <!-- Maven plugin version -->
@@ -75,12 +76,23 @@
         </plugins>
     </build>
     <dependencies>
-        <!-- PostgresSql -->
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
         </dependency>
         <!-- PostgresSql -->
         <dependency>
