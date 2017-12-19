@@ -55,7 +55,7 @@ public class DdWebappJpaConfiguration {
         final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
         final HibernateJpaVendorAdapter jpaAdapter = new HibernateJpaVendorAdapter();
-        jpaAdapter.setDatabase(Database.POSTGRESQL);
+        jpaAdapter.setDatabase(Database.MYSQL);
         jpaAdapter.setShowSql(true);
         jpaAdapter.setGenerateDdl(false);
         entityManagerFactoryBean.setJpaVendorAdapter(jpaAdapter);

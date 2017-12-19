@@ -6,6 +6,14 @@
 	<persistence-unit name="openjpa">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl
 		</provider>
+		<class>com.github.hartorn.dd.webapp.model.generated.AccountEventStatus</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.Account</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.AuthToken</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.EventRound</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.Event</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.RoundScore</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.AccountEventStatusPK</class>
+		<class>com.github.hartorn.dd.webapp.model.generated.RoundScorePK</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dd35" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
